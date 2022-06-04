@@ -4,4 +4,9 @@
     <string name="signature_text">From Emma</string>
     <string name="todo">TODO</string>
     <string name="title_activity_maps">MapsActivity</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="register">REGISTER</string>
+    <string name="do_you_have_an_account">Do you have an account?</string>
+    <string name="login">Login</string>
 </resources>
