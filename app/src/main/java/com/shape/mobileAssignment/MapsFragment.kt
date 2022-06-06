@@ -1,11 +1,14 @@
 package com.shape.mobileAssignment
 
+import android.Manifest
 import androidx.fragment.app.Fragment
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.activity.result.ActivityResultCallback
+import androidx.activity.result.contract.ActivityResultContracts
 
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
@@ -26,15 +29,17 @@ class MapsFragment : Fragment() {
          * install it inside the SupportMapFragment. This method will only be triggered once the
          * user has installed Google Play services and returned to the app.
          */
-        val sydney = LatLng(-34.0, 151.0)
-        googleMap.addMarker(MarkerOptions().position(sydney).title("Marker in Sydney"))
-        googleMap.moveCamera(CameraUpdateFactory.newLatLng(sydney))
+        val Campus1 = LatLng(-34.0, 151.0)
+        googleMap.addMarker(MarkerOptions().position(Campus1).title("Hong Kong Campus"))
+        googleMap.moveCamera(CameraUpdateFactory.newLatLng(Campus1))
     }
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
+
+
     ): View? {
         return inflater.inflate(R.layout.fragment_maps, container, false)
     }

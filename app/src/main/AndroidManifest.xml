@@ -10,6 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Mobileassignment">
 
+
         <!--
              TODO: Before you run your application, you need a Google Maps API key.
 
@@ -23,7 +24,7 @@
         -->
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="YOUR_API_KEY" />
+            android:value="AIzaSyCUDEVLu2KxUSc_dLNWKpu2NGTuXY3CgWI" />
 
         <activity
             android:name=".BookmarkActivity"
@@ -48,5 +49,6 @@
             </intent-filter>
         </activity>
     </application>
-
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
 </manifest>
