@@ -13,10 +13,6 @@ import com.google.android.material.navigation.NavigationView
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var drawerLayout: DrawerLayout
-    private lateinit var actionBarToggle: ActionBarDrawerToggle
-    private lateinit var navView: NavigationView
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -27,8 +23,6 @@ class MainActivity : AppCompatActivity() {
                 >(R.id.bottom_navigatin_view)
         val navController = findNavController(R.id.nav_fragment)
         bottomNavigationView.setupWithNavController(navController)
-
-
 
 
     }
