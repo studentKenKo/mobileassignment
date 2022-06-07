@@ -10,4 +10,5 @@
         of the navigation drawer-->
     <string name="nav_open">Open</string>
     <string name="nav_close">Close</string>
+    <string name="bookmarks_fragment">bookmarks</string>
 </resources>

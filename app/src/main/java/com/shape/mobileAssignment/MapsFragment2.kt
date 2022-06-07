@@ -1,14 +1,11 @@
 package com.shape.mobileAssignment
 
-import android.Manifest
 import androidx.fragment.app.Fragment
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.activity.result.ActivityResultCallback
-import androidx.activity.result.contract.ActivityResultContracts
 
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
@@ -17,10 +14,8 @@ import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
 
-class MapsFragment : Fragment() {
+class MapsFragment2 : Fragment() {
 
-
-    private lateinit var mMap: GoogleMap
     private val callback = OnMapReadyCallback { googleMap ->
         /**
          * Manipulates the map once available.
@@ -31,10 +26,8 @@ class MapsFragment : Fragment() {
          * install it inside the SupportMapFragment. This method will only be triggered once the
          * user has installed Google Play services and returned to the app.
          */
-
-        //Shui On Centre Habour Rd, Wan Chai
         val sydney = LatLng(-34.0, 151.0)
-        googleMap.addMarker(MarkerOptions().position(sydney).title("Hong Kong Campus"))
+        googleMap.addMarker(MarkerOptions().position(sydney).title("Marker in Sydney"))
         googleMap.moveCamera(CameraUpdateFactory.newLatLng(sydney))
     }
 
@@ -42,10 +35,8 @@ class MapsFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-
-
     ): View? {
-        return inflater.inflate(R.layout.fragment_maps, container, false)
+        return inflater.inflate(R.layout.fragment_maps2, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

@@ -6,7 +6,7 @@
         android:title="Home"
         android:icon="@drawable/ic_baseline_home_24"/>
     <item
-        android:id="@+id/mapsFragment"
+        android:id="@+id/mapsFragment2"
         android:title="Campus Location"
         android:icon="@drawable/ic_baseline_location_city_24"/>
     <item

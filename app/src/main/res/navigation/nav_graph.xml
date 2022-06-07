@@ -10,10 +10,10 @@
         android:label="fragment_home"
         tools:layout="@layout/fragment_home" />
     <fragment
-        android:id="@+id/mapsFragment"
-        android:name="com.shape.mobileAssignment.MapsFragment"
-        android:label="fragment_maps"
-        tools:layout="@layout/fragment_maps" />
+        android:id="@+id/mapsFragment2"
+        android:name="com.shape.mobileAssignment.MapsFragment2"
+        android:label="fragment_maps2"
+        tools:layout="@layout/fragment_maps2" />
     <fragment
         android:id="@+id/bookmarksFragment"
         android:name="com.shape.mobileAssignment.bookmarksFragment"
