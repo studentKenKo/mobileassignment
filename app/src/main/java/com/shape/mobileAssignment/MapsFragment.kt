@@ -29,16 +29,23 @@ class MapsFragment : Fragment() {
          * install it inside the SupportMapFragment. This method will only be triggered once the
          * user has installed Google Play services and returned to the app.
          */
-        val Campus1 = LatLng(-34.0, 151.0)
-        googleMap.addMarker(MarkerOptions().position(Campus1).title("Hong Kong Campus"))
-        googleMap.moveCamera(CameraUpdateFactory.newLatLng(Campus1))
+
+        //Shui On Centre Habour Rd, Wan Chai
+        val campus1 = LatLng(22.2820176,114.1747079)
+        googleMap.addMarker(MarkerOptions().position(campus1).title("Hong Kong Campus"))
+        //觀塘鴻圖道1號
+//        val campus2 = LatLng(22.3143699,114.2180424)
+//        googleMap.addMarker(MarkerOptions().position(campus2).title("Hong Kong Campus"))
+        // TM 新墟
+//        val campus3 = LatLng(22.397986, 113.977972)
+//        googleMap.addMarker(MarkerOptions().position(campus3).title("Hong Kong Campus"))
+        googleMap.moveCamera(CameraUpdateFactory.newLatLng(campus1))
     }
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-
 
     ): View? {
         return inflater.inflate(R.layout.fragment_maps, container, false)

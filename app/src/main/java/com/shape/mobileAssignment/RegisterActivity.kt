@@ -30,8 +30,8 @@ class RegisterActivity : AppCompatActivity() {
         auth.createUserWithEmailAndPassword(email,password).addOnCompleteListener { task ->
             if(task.isSuccessful){
                 val user =auth.currentUser
-                Toast.makeText(this, "${user!!.email}",Toast.LENGTH_LONG).show()
-                val intent= Intent(this,MainActivity::class.java)
+                Toast.makeText(this, "${user!!.email + "Hello, Register successful"}",Toast.LENGTH_LONG).show()
+                val intent= Intent(this,LoginActivity::class.java)
                 startActivity(intent)
                 finish()
             }
