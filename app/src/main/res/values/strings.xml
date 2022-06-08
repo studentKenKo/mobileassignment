@@ -11,4 +11,6 @@
     <string name="nav_open">Open</string>
     <string name="nav_close">Close</string>
     <string name="bookmarks_fragment">bookmarks</string>
+    <string name="do_you_have_an_account">Do you have an account?</string>
+    <string name="login">Login</string>
 </resources>
