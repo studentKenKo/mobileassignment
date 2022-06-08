@@ -11,6 +11,8 @@ import com.google.android.material.navigation.NavigationView
 import com.google.firebase.auth.FirebaseAuth
 
 
+//Navigation Drawer source form youtube Foxandroid video
+
 class MainActivity : AppCompatActivity() {
 
     private lateinit var  auth: FirebaseAuth
