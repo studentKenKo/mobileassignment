@@ -31,7 +31,7 @@ class MapsFragment2 : Fragment() {
         googleMap.addMarker(MarkerOptions().position(campus1).title("Hong Kong Campus"))
 //觀塘鴻圖道1號
         val campus2 = LatLng(22.3143699,114.2180424)
-        googleMap.addMarker(MarkerOptions().position(campus2).title("Tsim Sha Tsui Campus"))
+        googleMap.addMarker(MarkerOptions().position(campus2).title("Kwun Tong Campus"))
 // TM 新墟
         val campus3 = LatLng(22.397986, 113.977972)
         googleMap.addMarker(MarkerOptions().position(campus3).title("Tuen Mum Campus"))

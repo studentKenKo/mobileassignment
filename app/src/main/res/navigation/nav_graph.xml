@@ -24,4 +24,9 @@
         android:name="com.shape.mobileAssignment.ProfileFragment"
         android:label="fragment_profile"
         tools:layout="@layout/fragment_profile" />
+    <fragment
+        android:id="@+id/bookFragment"
+        android:name="com.shape.mobileAssignment.bookFragment"
+        android:label="fragment_book"
+        tools:layout="@layout/fragment_book" />
 </navigation>
