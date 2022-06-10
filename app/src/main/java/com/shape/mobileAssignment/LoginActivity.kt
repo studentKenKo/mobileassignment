@@ -1,6 +1,7 @@
 package com.shape.mobileAssignment
 
 import android.content.Intent
+import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -18,16 +19,33 @@ import java.util.concurrent.Executor
 
 // Code from Shape lab
 class LoginActivity : AppCompatActivity() {
+
+    // For Firebase Authtacation
     private lateinit var  auth: FirebaseAuth
 
     private lateinit var executor: Executor
     private lateinit var biometricPrompt: BiometricPrompt
     private lateinit var promptInfo: BiometricPrompt.PromptInfo
+    private var sharedPreferences: SharedPreferences? = null
+
+    companion object {
+        const val LOGINEMAIL_KEY = "LOGINEMAIL_KEY"
+        const val PASSWORD_KEY = "PASSWORD_KEY"
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
 
+        sharedPreferences = getSharedPreferences("MySharedPreMain", MODE_PRIVATE)
+/**
+        if (sharedPreferences!!.contains(LOGINEMAIL_KEY)) {
+            editTextEmailAddress!!.setText(sharedPreferences!!.getString(LOGINEMAIL_KEY, ""))
+        }
+        if (sharedPreferences!!.contains(PASSWORD_KEY)) {
+            editTextPassword!!.setText(sharedPreferences!!.getString(PASSWORD_KEY, ""))
+        }
+*/
         auth= FirebaseAuth.getInstance()
         executor = ContextCompat.getMainExecutor(this)
         biometricPrompt = BiometricPrompt(this, executor,
@@ -69,6 +87,7 @@ class LoginActivity : AppCompatActivity() {
         biometricLoginButton.setOnClickListener {
             biometricPrompt.authenticate(promptInfo)
         }
+
 
     }
 

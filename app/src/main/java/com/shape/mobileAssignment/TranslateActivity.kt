@@ -35,8 +35,8 @@ class TranslateActivity : AppCompatActivity() {
         val englishChineseTranslator = Translation.getClient(options)
         getLifecycle().addObserver(englishChineseTranslator)
 
-        btnTranslate.setOnClickListener({
-            if (!edtSourceLangText.text.isEmpty()) {
+        btnTranslate.setOnClickListener {
+            if (edtSourceLangText.text.isNotEmpty()) {
 
                 progressBar.visibility = View.VISIBLE
                 btnTranslate.visibility = View.GONE
@@ -66,6 +66,6 @@ class TranslateActivity : AppCompatActivity() {
 
                     }
             }
-        })
+        }
     }
 }
