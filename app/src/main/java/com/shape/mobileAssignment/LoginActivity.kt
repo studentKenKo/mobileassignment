@@ -1,5 +1,6 @@
 package com.shape.mobileAssignment
 
+import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
@@ -38,14 +39,6 @@ class LoginActivity : AppCompatActivity() {
         setContentView(R.layout.activity_login)
 
         sharedPreferences = getSharedPreferences("MySharedPreMain", MODE_PRIVATE)
-/**
-        if (sharedPreferences!!.contains(LOGINEMAIL_KEY)) {
-            editTextEmailAddress!!.setText(sharedPreferences!!.getString(LOGINEMAIL_KEY, ""))
-        }
-        if (sharedPreferences!!.contains(PASSWORD_KEY)) {
-            editTextPassword!!.setText(sharedPreferences!!.getString(PASSWORD_KEY, ""))
-        }
-*/
         auth= FirebaseAuth.getInstance()
         executor = ContextCompat.getMainExecutor(this)
         biometricPrompt = BiometricPrompt(this, executor,
@@ -63,9 +56,25 @@ class LoginActivity : AppCompatActivity() {
                     result: BiometricPrompt.AuthenticationResult) {
                     super.onAuthenticationSucceeded(result)
 
+                    val editTextEmailAddress =
+                        findViewById<TextView>(R.id.editTextEmailAddress)
+                    val editTextPassword =
+                        findViewById<TextView>(R.id.editTextPassword)
+                    val email=editTextEmailAddress.text.toString()
+                    val password=editTextPassword.text.toString()
+
+                    if (sharedPreferences!!.contains(LOGINEMAIL_KEY)) {
+                        editTextEmailAddress!!.text =
+                            sharedPreferences!!.getString(LOGINEMAIL_KEY, "")
+                    }
+                    if (sharedPreferences!!.contains(PASSWORD_KEY)) {
+                        editTextPassword!!.text = sharedPreferences!!.getString(PASSWORD_KEY, "")
+                    }
+
                     Toast.makeText(applicationContext,
                         "Authentication succeeded!", Toast.LENGTH_SHORT)
                         .show()
+
                 }
 
                 override fun onAuthenticationFailed() {
@@ -120,6 +129,11 @@ class LoginActivity : AppCompatActivity() {
 
         auth.signInWithEmailAndPassword(email,password).addOnCompleteListener { task ->
             if(task.isSuccessful){
+               val editor = sharedPreferences!!.edit()
+                editor.putString(LOGINEMAIL_KEY, editTextEmailAddress!!.text.toString())
+                editor.putString(PASSWORD_KEY, editTextPassword!!.text.toString())
+                editor.commit()
+
                 val intent= Intent(this,MainActivity::class.java)
                 startActivity(intent)
                 finish()
