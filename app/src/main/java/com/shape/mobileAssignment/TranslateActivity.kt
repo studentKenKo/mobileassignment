@@ -13,7 +13,7 @@ import com.google.mlkit.nl.translate.Translation
 import com.google.mlkit.nl.translate.TranslatorOptions
 
 
-// source form git@arunk7839
+// source form git@arunk7839 and firebase ML kit started
 class TranslateActivity : AppCompatActivity() {
 
     private val msg = MainActivity::class.java.simpleName

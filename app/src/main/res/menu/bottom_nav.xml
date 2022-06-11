@@ -14,9 +14,9 @@
         android:title="Bookmarks"
         android:icon="@drawable/ic_baseline_bookmark_24"/>
     <item
-        android:id="@+id/bookFragment"
-        android:title="Booking"
-        android:icon="@drawable/ic_baseline_book_online_24"/>
+        android:id="@+id/translateAct"
+        android:title="Translate"
+        android:icon="@drawable/ic_baseline_translate_24"/>
     <item
         android:id="@+id/profileFragment"
         android:title="MyProfile"
