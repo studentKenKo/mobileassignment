@@ -11,7 +11,7 @@ import com.google.firebase.database.*
 
 class HomeFragment : Fragment() {
 
-    lateinit var getFireBasedata: DatabaseReference
+    private lateinit var getFireBasedata: DatabaseReference
     lateinit var courseRecyclerview: RecyclerView
     lateinit var courseArrayList: ArrayList<CourseModel>
 

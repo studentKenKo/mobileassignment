@@ -14,6 +14,7 @@ import androidx.biometric.BiometricManager.Authenticators.BIOMETRIC_STRONG
 import androidx.biometric.BiometricManager.Authenticators.DEVICE_CREDENTIAL
 import androidx.biometric.BiometricPrompt
 import androidx.core.content.ContextCompat
+import androidx.core.view.isVisible
 import com.google.firebase.auth.FirebaseAuth
 import java.util.concurrent.Executor
 
@@ -21,7 +22,7 @@ import java.util.concurrent.Executor
 // Code from Shape lab
 class LoginActivity : AppCompatActivity() {
 
-    // For Firebase Authtacation
+    // For Firebase Authentication
     private lateinit var  auth: FirebaseAuth
 
     private lateinit var executor: Executor
@@ -91,6 +92,8 @@ class LoginActivity : AppCompatActivity() {
         biometricLoginButton.setOnClickListener {
             biometricPrompt.authenticate(promptInfo)
         }
+
+
     }
 
     override fun onResume() {
@@ -120,23 +123,6 @@ class LoginActivity : AppCompatActivity() {
         val email=editTextEmailAddress.text.toString()
         val password=editTextPassword.text.toString()
         performLogin(email, password)
-
-        auth.signInWithEmailAndPassword(email,password).addOnCompleteListener { task ->
-            if(task.isSuccessful){
-               val editor = sharedPreferences!!.edit()
-                editor.putString(LOGINEMAIL_KEY, editTextEmailAddress!!.text.toString())
-                editor.putString(PASSWORD_KEY, editTextPassword!!.text.toString())
-                editor.commit()
-
-                val intent= Intent(this,MainActivity::class.java)
-                startActivity(intent)
-                finish()
-            }
-        }.addOnFailureListener { exception ->
-
-            Toast.makeText(applicationContext,exception.localizedMessage, Toast.LENGTH_LONG).show()
-
-        }
     }
 
     private fun performLogin(email: String, password: String) {
@@ -162,5 +148,6 @@ class LoginActivity : AppCompatActivity() {
         val intent= Intent(this,RegisterActivity::class.java)
         startActivity(intent)
     }
+
 
 }
