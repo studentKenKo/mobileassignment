@@ -53,8 +53,11 @@ class MapsFragment2 : Fragment() {
         val mapFragment = childFragmentManager.findFragmentById(R.id.map) as SupportMapFragment?
         mapFragment?.getMapAsync(callback)
     }
-    
-    
+
+
+
+
+
 }
 
 

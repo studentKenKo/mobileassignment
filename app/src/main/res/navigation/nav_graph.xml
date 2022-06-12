@@ -14,11 +14,11 @@
         android:name="com.shape.mobileAssignment.MapsFragment2"
         android:label="fragment_maps2"
         tools:layout="@layout/fragment_maps2" />
-    <fragment
-        android:id="@+id/bookmarksFragment"
-        android:name="com.shape.mobileAssignment.bookmarksFragment"
-        android:label="fragment_bookmarks"
-        tools:layout="@layout/fragment_bookmarks" />
+    <activity
+        android:id="@+id/locationAct"
+        android:name="com.shape.mobileAssignment.MapActivity"
+        android:label="activity_maps"
+        tools:layout="@layout/activity_map" />
     <fragment
         android:id="@+id/profileFragment"
         android:name="com.shape.mobileAssignment.ProfileFragment"
