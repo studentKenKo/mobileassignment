@@ -11,9 +11,11 @@ import com.google.firebase.database.*
 
 class HomeFragment : Fragment() {
 
-    private lateinit var getFireBasedata: DatabaseReference
+
     lateinit var courseRecyclerview: RecyclerView
     lateinit var courseArrayList: ArrayList<CourseModel>
+    private lateinit var getFireBasedata: DatabaseReference
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

@@ -19,25 +19,11 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        // Toolbar
-        //Toolbar toolbar = findviewById(R.id.toolbar)
-
-        //Initialize the bottom navigation view
-        //create bottom navigation view object
         val bottomNavigationView = findViewById<BottomNavigationView
                 >(R.id.bottom_navigation_view)
         val navController = findNavController(R.id.nav_fragment)
         bottomNavigationView.setupWithNavController(navController)
 
-        /**
-         *
-
-        fun writeNewUser(userId: String, name: String, email: String) {
-            val user = User(name, email)
-
-            database.child("users").child(userId).setValue(user)
-        }
-         */
 
     }
 }

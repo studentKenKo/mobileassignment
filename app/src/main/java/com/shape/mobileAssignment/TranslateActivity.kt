@@ -33,7 +33,7 @@ class TranslateActivity : AppCompatActivity() {
             .build()
 
         val englishChineseTranslator = Translation.getClient(options)
-        getLifecycle().addObserver(englishChineseTranslator)
+        lifecycle.addObserver(englishChineseTranslator)
 
         btnTranslate.setOnClickListener {
             if (edtSourceLangText.text.isNotEmpty()) {
