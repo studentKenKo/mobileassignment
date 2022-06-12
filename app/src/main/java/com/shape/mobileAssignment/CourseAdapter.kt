@@ -14,7 +14,7 @@ import com.squareup.picasso.Picasso
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CourseAdapter.MyViewHolder {
 
         val itemView = LayoutInflater.from(parent.context).inflate(
-            R.layout.coursedata,
+            R.layout.recycleview_course_data,
             parent, false         )
         return CourseAdapter.MyViewHolder(itemView)
 
@@ -43,5 +43,3 @@ import com.squareup.picasso.Picasso
         }
     }
 
-
-    }

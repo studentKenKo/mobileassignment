@@ -45,11 +45,11 @@ class HomeFragment : Fragment() {
                 if (snapshot.exists()) {
 
                     for (dataSnapshot in snapshot.children) {
-                        val course = dataSnapshot.getValue(getFireBasedata::class.java)
+                        val course = dataSnapshot.getValue(CourseModel::class.java)
                         courseArrayList.add(course!!)
 
                     }
-                    courseRecyclerview.adapter = getFireBasedata(courseArrayList)
+                    courseRecyclerview.adapter = CourseAdapter(courseArrayList)
 
 
                 }
