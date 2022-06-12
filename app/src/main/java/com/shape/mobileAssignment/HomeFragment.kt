@@ -19,13 +19,13 @@ class HomeFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.recycleview_course_data, container, false)
+        return inflater.inflate(R.layout.fragment_home, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        courseRecyclerview = view.findViewById(R.id.dataList)
+        courseRecyclerview = view.findViewById(R.id.course_list)
         courseRecyclerview.layoutManager = LinearLayoutManager(context)
         courseRecyclerview.setHasFixedSize(true)
 
@@ -50,7 +50,6 @@ class HomeFragment : Fragment() {
 
                     }
                     courseRecyclerview.adapter = CourseAdapter(courseArrayList)
-
 
                 }
 

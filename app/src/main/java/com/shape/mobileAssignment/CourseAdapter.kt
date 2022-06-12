@@ -6,17 +6,19 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.squareup.picasso.Picasso
+import com.squareup.picasso.Picasso.get
+import java.util.ArrayList
 
-    class CourseAdapter(private val courseList: ArrayList<CourseModel>) :
+class CourseAdapter(private val courseList: ArrayList<CourseModel>) :
         RecyclerView.Adapter<CourseAdapter.MyViewHolder>() {
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CourseAdapter.MyViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
 
-        val itemView = LayoutInflater.from(parent.context).inflate(
+        val dataView = LayoutInflater.from(parent.context).inflate(
             R.layout.recycleview_course_data,
-            parent, false         )
-        return CourseAdapter.MyViewHolder(itemView)
+            parent, false
+        )
+        return MyViewHolder(dataView)
 
     }
 
@@ -25,21 +27,22 @@ import com.squareup.picasso.Picasso
         val getdatabaseInfo = courseList[position]
 
         holder.name.text = getdatabaseInfo.name
-        holder.sdesc.text = getdatabaseInfo.desc
+        holder.desc.text = getdatabaseInfo.desc
         val imageTarget = getdatabaseInfo.src
-        Picasso.get().load(imageTarget).into(holder.src)
+        get().load(imageTarget).into(holder.src)
     }
 
-        class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    class MyViewHolder(dataView: View) : RecyclerView.ViewHolder(dataView) {
 
-            val src: ImageView = itemView.findViewById(R.id.course_image)
-            val name: TextView = itemView.findViewById(R.id.course_name)
-            val sdesc: TextView = itemView.findViewById(R.id.course_sdesc)
+        val src: ImageView = dataView.findViewById(R.id.course_image)
+        val name: TextView = dataView.findViewById(R.id.course_name)
+        val desc: TextView = dataView.findViewById(R.id.course_desc)
 
-        }
-
-        override fun getItemCount(): Int {
-            TODO("Not yet implemented")
-        }
     }
 
+    override fun getItemCount(): Int {
+
+        return courseList.size
+    }
+
+}

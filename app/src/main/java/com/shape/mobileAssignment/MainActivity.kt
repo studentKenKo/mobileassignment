@@ -13,9 +13,6 @@ import com.google.firebase.ktx.Firebase
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var  auth: FirebaseAuth
-    private lateinit var database: DatabaseReference
-
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -28,12 +25,10 @@ class MainActivity : AppCompatActivity() {
         //Initialize the bottom navigation view
         //create bottom navigation view object
         val bottomNavigationView = findViewById<BottomNavigationView
-                >(R.id.bottom_navigatin_view)
+                >(R.id.bottom_navigation_view)
         val navController = findNavController(R.id.nav_fragment)
         bottomNavigationView.setupWithNavController(navController)
 
-
-        database = Firebase.database.reference
         /**
          *
 

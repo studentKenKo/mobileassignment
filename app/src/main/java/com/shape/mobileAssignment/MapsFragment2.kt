@@ -26,13 +26,14 @@ class MapsFragment2 : Fragment() {
          * install it inside the SupportMapFragment. This method will only be triggered once the
          * user has installed Google Play services and returned to the app.
          */
+
         //Shui On Centre Habour Rd, Wan Chai
         val campus1 = LatLng(22.2820176,114.1747079)
         googleMap.addMarker(MarkerOptions().position(campus1).title("Hong Kong Campus"))
-//觀塘鴻圖道1號
+        //觀塘鴻圖道1號
         val campus2 = LatLng(22.3143699,114.2180424)
         googleMap.addMarker(MarkerOptions().position(campus2).title("Kwun Tong Campus"))
-// TM 新墟
+        // TM 新墟
         val campus3 = LatLng(22.397986, 113.977972)
         googleMap.addMarker(MarkerOptions().position(campus3).title("Tuen Mum Campus"))
         googleMap.moveCamera(CameraUpdateFactory.newLatLng(campus1))

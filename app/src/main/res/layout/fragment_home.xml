@@ -1,11 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"    xmlns:app="http://schemas.android.com/apk/res-auto"    xmlns:tools="http://schemas.android.com/tools"    android:layout_width="match_parent"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/home_fragment">
+
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/dataList"
+        android:id="@+id/course_list"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:listitem="@layout/recycleview_course_data"
-        app:layoutManager="LinearLayoutManager"/>
+        app:layoutManager="LinearLayoutManager"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="-291dp"
+        tools:listitem="@layout/recycleview_course_data" />
 </androidx.constraintlayout.widget.ConstraintLayout>
+
