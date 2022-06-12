@@ -125,7 +125,7 @@ class LoginActivity : AppCompatActivity() {
         performLogin(email, password)
     }
 
-    private fun performLogin(email: String, password: String) {
+     fun performLogin(email: String, password: String) {
         auth.signInWithEmailAndPassword(email,password).addOnCompleteListener { task ->
             if(task.isSuccessful){
                 val editor = sharedPreferences!!.edit()
