@@ -56,20 +56,15 @@ class LoginActivity : AppCompatActivity() {
                     result: BiometricPrompt.AuthenticationResult) {
                     super.onAuthenticationSucceeded(result)
 
-                    val editTextEmailAddress =
-                        findViewById<TextView>(R.id.editTextEmailAddress)
-                    val editTextPassword =
-                        findViewById<TextView>(R.id.editTextPassword)
-                    val email=editTextEmailAddress.text.toString()
-                    val password=editTextPassword.text.toString()
-
-                    if (sharedPreferences!!.contains(LOGINEMAIL_KEY)) {
-                        editTextEmailAddress!!.text =
-                            sharedPreferences!!.getString(LOGINEMAIL_KEY, "")
+                    val email: String?
+                    val password: String?
+                    sharedPreferences?.getString(LOGINEMAIL_KEY, "").let {
+                        email = it
                     }
-                    if (sharedPreferences!!.contains(PASSWORD_KEY)) {
-                        editTextPassword!!.text = sharedPreferences!!.getString(PASSWORD_KEY, "")
+                    sharedPreferences?.getString(PASSWORD_KEY, "").let {
+                        password = it
                     }
+                    performLogin(email ?: "", password ?: "")
 
                     Toast.makeText(applicationContext,
                         "Authentication succeeded!", Toast.LENGTH_SHORT)
@@ -96,8 +91,6 @@ class LoginActivity : AppCompatActivity() {
         biometricLoginButton.setOnClickListener {
             biometricPrompt.authenticate(promptInfo)
         }
-
-
     }
 
     override fun onResume() {
@@ -126,6 +119,7 @@ class LoginActivity : AppCompatActivity() {
             findViewById<TextView>(R.id.editTextPassword)
         val email=editTextEmailAddress.text.toString()
         val password=editTextPassword.text.toString()
+        performLogin(email, password)
 
         auth.signInWithEmailAndPassword(email,password).addOnCompleteListener { task ->
             if(task.isSuccessful){
@@ -143,13 +137,30 @@ class LoginActivity : AppCompatActivity() {
             Toast.makeText(applicationContext,exception.localizedMessage, Toast.LENGTH_LONG).show()
 
         }
+    }
 
+    private fun performLogin(email: String, password: String) {
+        auth.signInWithEmailAndPassword(email,password).addOnCompleteListener { task ->
+            if(task.isSuccessful){
+                val editor = sharedPreferences!!.edit()
+                editor.putString(LOGINEMAIL_KEY, email)
+                editor.putString(PASSWORD_KEY, password)
+                editor.commit()
+
+                val intent= Intent(this,MainActivity::class.java)
+                startActivity(intent)
+                finish()
+            }
+        }.addOnFailureListener { exception ->
+
+            Toast.makeText(applicationContext,exception.localizedMessage, Toast.LENGTH_LONG).show()
+
+        }
     }
 
     fun goToRegister(view: View){
         val intent= Intent(this,RegisterActivity::class.java)
         startActivity(intent)
     }
-
 
 }

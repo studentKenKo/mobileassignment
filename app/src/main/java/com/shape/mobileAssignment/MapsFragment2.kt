@@ -36,6 +36,7 @@ class MapsFragment2 : Fragment() {
         val campus3 = LatLng(22.397986, 113.977972)
         googleMap.addMarker(MarkerOptions().position(campus3).title("Tuen Mum Campus"))
         googleMap.moveCamera(CameraUpdateFactory.newLatLng(campus1))
+        
     }
 
     override fun onCreateView(
@@ -51,4 +52,8 @@ class MapsFragment2 : Fragment() {
         val mapFragment = childFragmentManager.findFragmentById(R.id.map) as SupportMapFragment?
         mapFragment?.getMapAsync(callback)
     }
+    
+    
 }
+
+

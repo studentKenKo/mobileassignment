@@ -51,6 +51,10 @@ dependencies {
     implementation 'com.google.android.gms:play-services-maps:18.0.2'
     implementation 'com.google.android.material:material:1.3.0-alpha03'
     implementation 'com.google.mlkit:translate:17.0.0'
+
+    // For access image to firebase
+    implementation 'com.squareup.picasso:picasso:2.71828'
+
     //circle profile
     implementation 'de.hdodenhof:circleimageview:3.1.0'
 
